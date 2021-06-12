@@ -1,0 +1,31 @@
+apiVersion: flagger.app/v1beta1
+kind: Canary
+metadata:
+  name: devops-toolkit
+spec:
+  targetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: devops-toolkit
+  autoscalerRef:
+    apiVersion: autoscaling/v1
+    kind: HorizontalPodAutoscaler
+    name: devops-toolkit
+  progressDeadlineSeconds: 60
+  service:
+    port: 80
+    targetPort: 80
+  analysis:
+    interval: 30s
+    threshold: 5
+    maxWeight: 60
+    stepWeight: 20
+    metrics:
+    - name: request-success-rate
+      thresholdRange:
+        min: 99
+      interval: 2m
+    - name: request-duration
+      thresholdRange:
+        max: 500
+      interval: 30s
