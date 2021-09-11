@@ -24,8 +24,8 @@ spec:
     - name: request-success-rate
       thresholdRange:
         min: 99
-      interval: 2m
+      interval: 10s
     - name: request-duration
       thresholdRange:
         max: 500
-      interval: 30s
+      interval: 10s
