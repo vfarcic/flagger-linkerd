@@ -18,10 +18,14 @@ spec:
     gateways:
     - public-gateway.istio-system.svc.cluster.local
     hosts:
-    - devops-toolkit.34.139.90.59.nip.io
+    - devops-toolkit.35.196.24.162.nip.io
     trafficPolicy:
       tls:
         mode: DISABLE
+    retries:
+      attempts: 3
+      perTryTimeout: 1s
+      retryOn: "gateway-error,connect-failure,refused-stream"
   analysis:
     interval: 30s
     threshold: 2
@@ -35,4 +39,4 @@ spec:
     - name: request-duration
       thresholdRange:
         max: 500
-      interval: 10s
+      interval: 30s

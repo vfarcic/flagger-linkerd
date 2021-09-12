@@ -6,7 +6,3 @@ resources:
 - canary.yaml
 - ../../base
 namespace: production
-images:
-- name: vfarcic/silly-demo
-  newName: vfarcic/silly-demo
-  newTag: 1.0.1
