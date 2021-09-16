@@ -1,16 +1,16 @@
 apiVersion: flagger.app/v1beta1
 kind: Canary
 metadata:
-  name: devops-toolkit
+  name: silly-demo
 spec:
   targetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: devops-toolkit
+    name: silly-demo
   autoscalerRef:
     apiVersion: autoscaling/v1
     kind: HorizontalPodAutoscaler
-    name: devops-toolkit
+    name: silly-demo
   progressDeadlineSeconds: 60
   service:
     port: 8080

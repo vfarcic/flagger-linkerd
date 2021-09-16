@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: devops-toolkit
+  name: silly-demo
   labels:
-    app: devops-toolkit
+    app: silly-demo
 spec:
   selector:
     matchLabels:
-      app: devops-toolkit
+      app: silly-demo
   template:
     metadata:
       labels:
-        app: devops-toolkit
+        app: silly-demo
       annotations:
         linkerd.io/inject: enabled
     spec:
       containers:
-      - name: devops-toolkit
+      - name: silly-demo
         image: vfarcic/silly-demo:1.0.0
         ports:
         - containerPort: 8080
